@@ -371,7 +371,7 @@ const portfolioData = {
         "Hybrid RAG architecture combining graph and vector retrieval, Custom G-Eval framework for LLM response quality assessment , 70% alert accuracy matching expert-defined priorities, Conversational interface for natural language SAP queries, Automated RCA (root cause analysis) with contextual documentation",
       technologies: ["Neo4j", "Qdrant Cloud", "Vector Search", "Graph Analytics", "Python"],
       impact: "70x data processing improvement",
-      image: "/hybrid-rag-flow.png",
+      image: "/venn.png",
     },
     {
       id: 2,
