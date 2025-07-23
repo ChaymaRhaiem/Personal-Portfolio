@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Brain, Database, TrendingUp, BookOpen, Users, Zap, LogOut } from "lucide-react"
+import { Brain, Database, TrendingUp, BookOpen, Users, Zap, Github, Linkedin } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { MatrixBackground } from "@/components/matrix-background"
 import { EnhancedTimeline } from "@/components/enhanced-timeline"
@@ -14,7 +14,6 @@ import { VisualSkills } from "@/components/visual-skills"
 import { LanguagesSection } from "@/components/languages-section"
 import { ModernContact } from "@/components/modern-contact"
 import { CertificationsSection } from "@/components/certifications-section"
-import { log } from "console"
 
 // Updated with Chayma's information
 const portfolioData = {
@@ -26,7 +25,8 @@ const portfolioData = {
   location: "Ariana, Tunisia",
   github: "https://github.com/ChaymaRhaiem",
   linkedin: "https://linkedin.com/in/chayma-rhaiem",
-  // avatar: "https://example.com/your-profile-photo.jpg",
+  medium: "https://medium.com/@rhaiem.chayma",
+  avatar: "/profile-photo.jpg", // Add your photo to the public folder
 
   about:
     "Software engineer focused on data science and applied AI. I build systems that combine machine learning, cloud infrastructure, and retrieval-augmented generation (RAG) to solve practical problems",
@@ -35,6 +35,7 @@ const portfolioData = {
     { name: "Arabic", level: "Native", flag: "🇹🇳", proficiency: 100 },
     { name: "English", level: "Advanced (C1)", flag: "🇺🇸", proficiency: 95 },
     { name: "French", level: "Fluent", flag: "🇫🇷", proficiency: 90 },
+    { name: "German", level: "Basic (A1)", flag: "🇩🇪", proficiency: 25 },
     { name: "Spanish", level: "Beginner", flag: "🇪🇸", proficiency: 40 },
   ],
 
@@ -78,7 +79,7 @@ const portfolioData = {
         "Achieved 25% reduction in average response time to employee queries during testing phases",
       ],
       technologies: ["AWS", "SAP Analytics Cloud", "LLM", "RAG", "Interactive Dashboards", "Data Pipelines"],
-      experienceLetter: "/Experience Letter-Chayma_Rhaiem - Vizio Consulting.pdf", // Add your actual PDF URL here
+      experienceLetter: "/Experience Letter-Chayma_Rhaiem - Vizio Consulting.pdf",
       projects: [
         {
           title: "AWS Glue to Power BI Pipeline",
@@ -93,9 +94,9 @@ const portfolioData = {
           description:
             "Pioneered early RAG implementation using AWS Bedrock's foundation models for intelligent document processing. Built when RAG was just emerging as a paradigm, featuring advanced prompt engineering and context-aware responses.",
           image: "/aws-bedrock-rag.png",
-          technologies: ["AWS Bedrock","AWS Kendra","IAM", "ReactJS","Flask", "RAG", "LLM", "Python"],
-          impact: "Enterprise PoC success"
-          },
+          technologies: ["AWS Bedrock", "AWS Kendra", "IAM", "ReactJS", "Flask", "RAG", "LLM", "Python"],
+          impact: "Enterprise PoC success",
+        },
         {
           title: "AWS S3 and Redshift Data Pipeline Optimization in Glue",
           description:
@@ -112,15 +113,22 @@ const portfolioData = {
       companyIcon: "https://bfigroupe.com/wp-content/uploads/2021/02/bfi_logo_2021.svg",
       location: "Tunis, Tunisia",
       period: "Feb 2022 - Jun 2022",
-      experienceLetter: "/Lettre de recommandation Chayma RHAIEM - BFI Groupe.pdf", 
-
+      experienceLetter: "/Lettre de recommandation Chayma RHAIEM - BFI Groupe.pdf",
       description: [
         "Leveraged datasets from BFI's African banking partners (300,000+ customer records) for credit risk modeling",
         "Refined credit risk models under Basel II and IFRS 9 guidelines improving prediction accuracy",
         "Enhanced prediction accuracy by 10% through advanced model optimization and AutoML techniques",
         "Developed comprehensive risk assessment framework for African banking sector",
       ],
-      technologies: ["Python", "AutoML", "Credit Risk Modeling", "Basel II", "IFRS 9 PD", "Statistical Analysis","Oracle SQL Developer"],
+      technologies: [
+        "Python",
+        "AutoML",
+        "Credit Risk Modeling",
+        "Basel II",
+        "IFRS 9 PD",
+        "Statistical Analysis",
+        "Oracle SQL Developer",
+      ],
     },
   ],
 
@@ -188,10 +196,22 @@ const portfolioData = {
         name: "TensorFlow",
         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
       },
-      { name: "Scikit-learn", logo:"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg" },
-      { name: "Keras", logo:"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/keras/keras-plain-wordmark.svg" },
-      { name: "Pytorch", logo:"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original-wordmark.svgs" },
-      { name: "Transformers",logo:"https://huggingface.co/datasets/huggingface/brand-assets/resolve/7e7df7da9642aaae2ad311be8bf12a63dddbc6d2/hf-logo-with-title.png" },
+      {
+        name: "Scikit-learn",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/scikitlearn/scikitlearn-original.svg",
+      },
+      {
+        name: "Keras",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/keras/keras-plain-wordmark.svg",
+      },
+      {
+        name: "Pytorch",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original-wordmark.svgs",
+      },
+      {
+        name: "Transformers",
+        logo: "https://huggingface.co/datasets/huggingface/brand-assets/resolve/7e7df7da9642aaae2ad311be8bf12a63dddbc6d2/hf-logo-with-title.png",
+      },
     ],
     Programming: [
       { name: "Python", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" },
@@ -200,29 +220,50 @@ const portfolioData = {
         name: "JavaScript",
         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-plain.svg",
       },
-      { name: "PySpark", logo:"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachespark/apachespark-original.svg" },
+      {
+        name: "PySpark",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachespark/apachespark-original.svg",
+      },
     ],
     "Web & Frameworks": [
-      { name: "Flask", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original-wordmark.svg" },
-      { name: "Streamlit",logo:"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/streamlit/streamlit-original-wordmark.svg" },
+      {
+        name: "Flask",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original-wordmark.svg",
+      },
+      {
+        name: "Streamlit",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/streamlit/streamlit-original-wordmark.svg",
+      },
       { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
       { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-      { name: "Spring Framework" , logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
+      {
+        name: "Spring Framework",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
+      },
     ],
     "Cloud & Data": [
-      { name: "SAP Analytics Cloud", logo:"https://img.icons8.com/deco/512/sap.png" },
+      { name: "SAP Analytics Cloud", logo: "https://img.icons8.com/deco/512/sap.png" },
       { name: "SAP HANA", logo: "https://img.icons8.com/deco/512/sap.png" },
-      { name: "Neo4j",logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/neo4j/neo4j-original.svg" },
-      { name: "Qdrant Cloud",logo: "https://imgs.search.brave.com/ULLwmKzIw9i0dO-HP_aRrXwRT9oQX-LYmjioyT_sC-k/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuc2Vla2xvZ28u/Y29tL2xvZ28tcG5n/LzQ5LzIvcWRyYW50/LWxvZ28tcG5nX3Nl/ZWtsb2dvLTQ5Nzk1/OS5wbmc" },
-      { name: "MongoDB",logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg" },
-      { name: "AWS Glue",logo: "https://devicons.railway.com/i/aws.svg" },
-      { name: "AWS Bedrock", logo:"https://devicons.railway.com/i/aws.svg" },
-      { name: "AWS Redshift",logo:"https://devicons.railway.com/i/aws.svg" },
-      { name: "AWS QuickSight",logo:"https://devicons.railway.com/i/aws.svg" },
+      { name: "Neo4j", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/neo4j/neo4j-original.svg" },
+      {
+        name: "Qdrant Cloud",
+        logo: "https://imgs.search.brave.com/ULLwmKzIw9i0dO-HP_aRrXwRT9oQX-LYmjioyT_sC-k/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9pbWFn/ZXMuc2Vla2xvZ28u/Y29tL2xvZ28tcG5n/LzQ5LzIvcWRyYW50/LWxvZ28tcG5nX3Nl/ZWtsb2dvLTQ5Nzk1/OS5wbmc",
+      },
+      {
+        name: "MongoDB",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mongodb/mongodb-original.svg",
+      },
+      { name: "AWS Glue", logo: "https://devicons.railway.com/i/aws.svg" },
+      { name: "AWS Bedrock", logo: "https://devicons.railway.com/i/aws.svg" },
+      { name: "AWS Redshift", logo: "https://devicons.railway.com/i/aws.svg" },
+      { name: "AWS QuickSight", logo: "https://devicons.railway.com/i/aws.svg" },
     ],
     "Web Scraping & Tools": [
-      { name: "Selenium",logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg" },
-      { name: "Scrapy Playwright", logo:"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/playwright/playwright-plain.svg"},
+      { name: "Selenium", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg" },
+      {
+        name: "Scrapy Playwright",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/playwright/playwright-plain.svg",
+      },
       { name: "BeautifulSoup" },
       { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" },
     ],
@@ -304,11 +345,10 @@ const portfolioData = {
       title: "Intelligent Trading Agent",
       description:
         "ML-powered trading system for Tunisian financial market with real-time sentiment analysis and generative AI document processing.",
-      technologies: ["Timeseries Analysis","Machine Learning","NLP", "Sentiment Analysis", "Generative AI"],
+      technologies: ["Timeseries Analysis", "Machine Learning", "NLP", "Sentiment Analysis", "Generative AI"],
       github: "https://github.com/ChaymaRhaiem/FinSent--Market-Intelligence-with-Predictive-Analytics-and-NLP",
       demo: "https://drive.google.com/file/d/13l9xMRhHxkDNh-efaR6_PCc-PWZsAuNp/view?usp=sharing",
-      image:
-        "/finsent-architecture.png",
+      image: "/finsent-architecture.png",
       category: "Financial ML",
     },
     {
@@ -321,56 +361,36 @@ const portfolioData = {
       image: "https://github.com/ChaymaRhaiem/CIFAR-10-mask-RCNN/blob/main/cifar-architecture.png?raw=true",
       category: "Computer Vision",
     },
-    // {
-    //   id: 4,
-    //   title: "Credit Risk Assessment System",
-    //   description:
-    //     "Automated credit PD (Probability of default) models under Basel II and IFRS 9 guidelines using 300,000+ customer records from African banks.",
-    //   technologies: ["Risk Modeling", "Statistical Analysis", "Python", "Credit scoring", "AutoML","Logistic Regression","Random Forest"],
-    //   image: "/credit-score-architecture.png",
-    //   category: "Financial ML",
-    // },
   ],
 
   professionalProjects: [
     {
       id: 1,
       title: "Hybrid Graph-Vector RAG System",
-      description:"Hybrid RAG architecture combining graph and vector retrieval, Custom G-Eval framework for LLM response quality assessment , 70% alert accuracy matching expert-defined priorities, Conversational interface for natural language SAP queries, Automated RCA (root cause analysis) with contextual documentation",
+      description:
+        "Hybrid RAG architecture combining graph and vector retrieval, Custom G-Eval framework for LLM response quality assessment , 70% alert accuracy matching expert-defined priorities, Conversational interface for natural language SAP queries, Automated RCA (root cause analysis) with contextual documentation",
       technologies: ["Neo4j", "Qdrant Cloud", "Vector Search", "Graph Analytics", "Python"],
       impact: "70x data processing improvement",
-      
       image: "/hybrid-rag-flow.png",
-            
     },
-        {
+    {
       id: 2,
       title: "Credit Risk Assessment System",
       description:
         "Automated credit PD (Probability of default) models under Basel II and IFRS 9 guidelines using 300,000+ customer records from African banks.",
-      technologies: ["Risk Modeling", "Statistical Analysis", "Python", "Credit scoring", "AutoML","Logistic Regression","Random Forest"],
+      technologies: [
+        "Risk Modeling",
+        "Statistical Analysis",
+        "Python",
+        "Credit scoring",
+        "AutoML",
+        "Logistic Regression",
+        "Random Forest",
+      ],
       image: "/credit-score-architecture.png",
-      impact:"85% initial PD prediction accuracy further enhanced by 10% using AutoML.",
+      impact: "85% initial PD prediction accuracy further enhanced by 10% using AutoML.",
       category: "Financial ML",
     },
-    // {
-    //   id: 2,
-    //   title: "AI-Powered Teams Chatbot",
-    //   description:
-    //     "Microsoft Teams chatbot for SAP anomaly detection with 30% faster detection time and 50% improved accuracy through prompt engineering.",
-    //   technologies: ["Microsoft Teams API", "Generative AI", "RAG", "Prompt Engineering"],
-    //   impact: "30% faster anomaly detection",
-    //   image: "/placeholder.svg?height=200&width=300",
-    // },
-    // {
-    //   id: 3,
-    //   title: "AWS Data Pipeline Optimization",
-    //   description:
-    //     "Streamlined data pipelines improving processing efficiency by 30% and reducing data retrieval time by 40% for enterprise clients.",
-    //   technologies: ["AWS Glue", "SAP Analytics Cloud", "Data Pipelines", "ETL"],
-    //   impact: "40% faster data retrieval",
-    //   image: "./dashboard-gas-client.png",
-    // },
   ],
 }
 
@@ -422,6 +442,41 @@ export default function Portfolio() {
               )}
             </div>
 
+            {/* Social Links */}
+            <div
+              className={`hidden md:flex items-center space-x-4 transition-all duration-700 ${isLoaded ? "animate-slide-in-right" : "opacity-0"}`}
+            >
+              <a
+                href={portfolioData.github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-blue-400 transition-colors duration-300 hover:scale-110"
+                aria-label="GitHub"
+              >
+                <Github className="w-5 h-5" />
+              </a>
+              <a
+                href={portfolioData.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-blue-400 transition-colors duration-300 hover:scale-110"
+                aria-label="LinkedIn"
+              >
+                <Linkedin className="w-5 h-5" />
+              </a>
+              <a
+                href={portfolioData.medium}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 hover:text-blue-400 transition-colors duration-300 hover:scale-110"
+                aria-label="Medium"
+              >
+                <svg className="w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                  <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
+                </svg>
+              </a>
+            </div>
+
             {/* Mobile Menu Button */}
             <button
               className="md:hidden text-blue-400 hover:scale-110 transition-transform duration-300"
@@ -448,6 +503,36 @@ export default function Portfolio() {
                     </button>
                   ),
                 )}
+
+                {/* Mobile Social Links */}
+                <div className="flex space-x-4 pt-4 border-t border-slate-700/50">
+                  <a
+                    href={portfolioData.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-400 hover:text-blue-400 transition-colors duration-300"
+                  >
+                    <Github className="w-5 h-5" />
+                  </a>
+                  <a
+                    href={portfolioData.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-400 hover:text-blue-400 transition-colors duration-300"
+                  >
+                    <Linkedin className="w-5 h-5" />
+                  </a>
+                  <a
+                    href={portfolioData.medium}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-slate-400 hover:text-blue-400 transition-colors duration-300"
+                  >
+                    <svg className="w-5 h-5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" fill="currentColor">
+                      <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
+                    </svg>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -458,44 +543,38 @@ export default function Portfolio() {
       <section id="home" className="pt-20 pb-16 px-4 sm:px-6 lg:px-8 relative min-h-screen flex items-center">
         <div className="max-w-6xl mx-auto w-full">
           <div className="text-center">
-            <div className={`transition-all duration-1000 ${isLoaded ? "animate-scale-in" : "opacity-0 scale-90"}`}>
-              {/* <Avatar className="w-40 h-40 mx-auto mb-8 border-2 border-blue-500/30 shadow-lg shadow-blue-500/20">
-                {/* <AvatarImage src={portfolioData.avatar || "/placeholder.svg"} alt={portfolioData.name} /> */}
-                {/* <AvatarFallback className="text-3xl bg-gradient-to-br from-blue-500 to-purple-600 text-white"> */} 
-                  {/* {portfolioData.name
+            {/* Avatar and Name Side by Side */}
+            <div
+              className={`flex items-center justify-center gap-8 mb-8 transition-all duration-1000 ${isLoaded ? "animate-scale-in" : "opacity-0 scale-90"}`}
+            >
+              <Avatar className="w-32 h-32 md:w-40 md:h-40 border-4 border-blue-500/30 shadow-2xl shadow-blue-500/30 flex-shrink-0">
+                <AvatarImage src={portfolioData.avatar || "/placeholder.svg"} alt={portfolioData.name} />
+                <AvatarFallback className="text-2xl md:text-3xl bg-gradient-to-br from-blue-500 to-purple-600 text-white">
+                  {portfolioData.name
                     .split(" ")
                     .map((n) => n[0])
                     .join("")}
                 </AvatarFallback>
-              </Avatar> */}
-            </div>
-
-            <div
-              className={`transition-all duration-1000 delay-300 ${isLoaded ? "animate-fade-in-up" : "opacity-0 translate-y-8"}`}
-            >
-              <h1 className="text-5xl md:text-7xl font-bold mb-4 text-slate-100">{portfolioData.name}</h1>
-            </div>
-
-            <div
-              className={`transition-all duration-1000 delay-500 ${isLoaded ? "animate-fade-in-up" : "opacity-0 translate-y-8"}`}
-            >
-              <p className="text-2xl md:text-3xl text-blue-400 mb-4">{portfolioData.title}</p>
+              </Avatar>
+              <div className="text-left flex-1 max-w-2xl">
+                <h1 className="text-3xl md:text-5xl lg:text-6xl font-bold text-slate-100 leading-tight">
+                  {portfolioData.name}
+                </h1>
+                <p className="text-lg md:text-xl lg:text-2xl text-blue-400 mt-2 mb-4">{portfolioData.title}</p>
+                <p className="text-base md:text-lg text-purple-400 font-light leading-relaxed">
+                  {portfolioData.tagline}
+                </p>
+              </div>
             </div>
 
             <div
               className={`transition-all duration-1000 delay-700 ${isLoaded ? "animate-fade-in-up" : "opacity-0 translate-y-8"}`}
             >
-              <p className="text-xl text-purple-400 mb-8 font-light">{portfolioData.tagline}</p>
-            </div>
-
-            <div
-              className={`transition-all duration-1000 delay-900 ${isLoaded ? "animate-fade-in-up" : "opacity-0 translate-y-8"}`}
-            >
               <p className="text-lg text-slate-300 max-w-3xl mx-auto mb-12 leading-relaxed">{portfolioData.about}</p>
             </div>
 
             <div
-              className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-1100 ${isLoaded ? "animate-fade-in-up" : "opacity-0 translate-y-8"}`}
+              className={`flex flex-col sm:flex-row gap-4 justify-center transition-all duration-1000 delay-900 ${isLoaded ? "animate-fade-in-up" : "opacity-0 translate-y-8"}`}
             >
               <Button
                 onClick={() => scrollToSection("projects")}
@@ -733,7 +812,7 @@ export default function Portfolio() {
                                 variant="outline"
                                 size="lg"
                                 asChild
-                                className="border-blue-500/50 text-blue-300 hover:bg-blue-500/20 backdrop-blur-sm"
+                                className="border-blue-500/50 text-blue-300 hover:bg-blue-500/20 backdrop-blur-sm bg-transparent"
                               >
                                 <a href={project.github} target="_blank" rel="noopener noreferrer">
                                   <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -798,7 +877,7 @@ export default function Portfolio() {
                               variant="outline"
                               size="sm"
                               asChild
-                              className="flex-1 border-blue-500/50 text-blue-300 hover:bg-blue-500/20"
+                              className="flex-1 border-blue-500/50 text-blue-300 hover:bg-blue-500/20 bg-transparent"
                             >
                               <a href={project.github} target="_blank" rel="noopener noreferrer">
                                 <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -886,6 +965,7 @@ export default function Portfolio() {
               location={portfolioData.location}
               github={portfolioData.github}
               linkedin={portfolioData.linkedin}
+              medium={portfolioData.medium}
             />
           </ScrollReveal>
         </div>
