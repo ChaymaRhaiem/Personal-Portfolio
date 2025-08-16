@@ -15,70 +15,112 @@ import { LanguagesSection } from "@/components/languages-section"
 import { ModernContact } from "@/components/modern-contact"
 import { CertificationsSection } from "@/components/certifications-section"
 
-// Updated with Chayma's information
+// Updated with enhanced information from resume while preserving all original content
 const portfolioData = {
   name: "Chayma Rhaiem",
-  title: "Data Scientist & Software Engineer",
-  tagline: "Equipping LLMs with facts, features, and a side of ✨delusion control✨",
+  title: "AI Engineer & Software Engineer",
+  tagline: "Building production RAG systems and AI-integrated development workflows",
   email: "rhaiem.chayma@gmail.com",
   phone: "(+216) 26 364 009",
   location: "Ariana, Tunisia",
   github: "https://github.com/ChaymaRhaiem",
   linkedin: "https://linkedin.com/in/chayma-rhaiem",
   medium: "https://medium.com/@rhaiem.chayma",
-  avatar: "/profile-photo.jpg", // Add your photo to the public folder
+  avatar: "/profile-photo.jpg",
 
   about:
-    "Software engineer focused on data science and applied AI. I build systems that combine machine learning, cloud infrastructure, and retrieval-augmented generation (RAG) to solve practical problems",
+    "AI Engineer specializing in AI-integrated development workflows and production RAG systems. I've spent the last year and a half building cloud-native applications that intelligently monitor systems, detect anomalies, and provide automated insights. My approach centers on making AI a core part of the development process rather than just an add-on feature.",
+
+  // Professional metrics section - more discrete and mature
+  professionalHighlights: {
+    experience: "1+ Years",
+    projectsDelivered: "10+ Projects",
+    specialization: "Production AI Systems",
+    focus: "RAG & ML Engineering",
+  },
+
+  // Latest blog section
+  latestBlog: {
+    title: "From Chaos to Context: How We Tamed SAP Monitoring with a Graph RAG Assistant",
+    excerpt:
+      "A complete implementation guide for building AI-powered SAP monitoring systems using Graph RAG architecture. Learn how we combined Neo4j knowledge graphs with vector search to create an intelligent assistant that processes SAP T-codes, detects anomalies, and provides contextual solutions in real-time.",
+    publishDate: "July 2025",
+    readTime: "10 min read",
+    url: "https://medium.com/@rhaiem.chayma/from-chaos-to-context-how-we-tamed-sap-monitoring-with-a-graph-rag-assistant-19abe59f13f7",
+    tags: ["Graph RAG", "SAP Monitoring", "Neo4j", "Production AI", "System Architecture"],
+  },
 
   languages: [
     { name: "Arabic", level: "Native", flag: "🇹🇳", proficiency: 100 },
     { name: "English", level: "Advanced (C1)", flag: "🇺🇸", proficiency: 95 },
-    { name: "French", level: "Fluent", flag: "🇫🇷", proficiency: 90 },
+    { name: "French", level: "Near-Native (C2)", flag: "🇫🇷", proficiency: 98 },
     { name: "German", level: "Basic (A1)", flag: "🇩🇪", proficiency: 25 },
-    { name: "Spanish", level: "Beginner", flag: "🇪🇸", proficiency: 40 },
+    { name: "Spanish", level: "Basic (A1)", flag: "🇪🇸", proficiency: 25 },
   ],
 
   experiences: [
     {
-      title: "Data Scientist",
+      title: "AI Engineer – Client Project (End-of-studies Internship)",
       company: "Avaxia Group",
       companyIcon: "https://www.avaxiagroup.com/wp-content/themes/poey-custom-wp/assets/img/avaxia-logo.svg",
       location: "Tunis, Tunisia",
       period: "Jul 2024 - Jun 2025",
       description: [
-        "Oct 2024 - Jun 2025: Designed hybrid Graph-Vector RAG system integrating Graph and Vector cloud data storages for SAP anomaly detection",
-        "Built automated recommendation engine with knowledge graphs for real-time fix suggestions, scaling alert monitoring to process 70x more data points",
-        "Initial Project (Jul - Sep 2024): Developed Microsoft Teams Alerting Chatbot cutting SAP anomaly detection time, using generative AI and vector RAG",
-        "⚡ Boosted response accuracy through prompt engineering and designed real-time DBaaS system reducing infrastructure costs",
+        "Built cloud-based service with FastAPI to monitor SAP systems using T-codes, detect anomalies and critical errors, and suggest fixes from SAP help docs, SAP notes, and expert knowledge",
+        "Increased system capacity by 70× while keeping response times under one second using Neo4j graph queries and Qdrant vector search",
+        "Added Ollama for local LLM inference and Groq for low-latency model serving, cutting response times and reducing API costs",
+        "Optimized vector similarity search performance from 3.2s to 800ms response time in production queries",
+        "Created production MS Teams bot integration processing 1000+ automated incident workflows daily",
+        "Delivered the system as a production-ready service with easy deployment and integration into client's environment",
       ],
       technologies: [
-        "SAP",
-        "React",
         "FastAPI",
-        "Generative AI",
-        "RAG",
-        "Graph RAG",
-        "Python",
-        "Knowledge Graphs",
         "Neo4j",
+        "Qdrant",
+        "Ollama",
+        "MongoDB",
+        "SAP T-codes",
+        "MS Teams API",
         "Vector Search",
-        "DBaaS",
+        "Knowledge Graphs",
+        "Deployment",
+        "RAG",
+        "Context Engineering",
+      ],
+      projects: [
+        {
+          title: "Enterprise SAP Monitoring System",
+          description:
+            "Production-ready AI-powered monitoring system with 70× capacity increase and sub-second response times using hybrid Graph-Vector RAG architecture.",
+          image: "/hybrid-rag-flow.png",
+          technologies: ["FastAPI", "Neo4j", "Qdrant", "LLaMa", "SAP"],
+          impact: "70× system capacity increase",
+          isEarlyRAG: false,
+        },
       ],
     },
     {
-      title: "Full-time AWS & SAP Consultant",
+      title: "Cloud Solutions Consultant (Full-Time Contract)",
       company: "VIZIO Consulting Inc",
       companyIcon: "https://vizioconsulting.com/wp-content/uploads/2021/12/Vizio_Connecting_logo-01-2048x1011.png",
       location: "Toronto, Canada",
       period: "Jun 2023 - Jan 2024",
       description: [
-        "Streamlined data pipelines in AWS and SAC, improving data processing efficiency by 30%",
-        "Delivered comprehensive reports and interactive dashboards, reducing data retrieval time by 40%",
-        "Led development of AI-based chat assistant PoC for major gas company using AWS services and LLMs",
-        "Achieved 25% reduction in average response time to employee queries during testing phases",
+        "Delivered production RAG-based enterprise AI assistant using AWS Bedrock, S3 and Kendra enterprise search, demonstrating 25% internal efficiency gains",
+        "Built real-time BI dashboards in SAP Analytics Cloud, PowerBI, and QuickSight processing large-scale data streams",
+        "Optimized multi-cloud ETL architectures achieving 25% performance improvement in production reporting systems",
+        "Led AI integration proof-of-concept from prototype to approved production deployment",
       ],
-      technologies: ["AWS", "SAP Analytics Cloud", "LLM", "RAG", "Interactive Dashboards", "Data Pipelines"],
+      technologies: [
+        "AWS Bedrock",
+        "AWS S3",
+        "AWS Kendra",
+        "SAP Analytics Cloud",
+        "PowerBI",
+        "QuickSight",
+        "Multi-cloud ETL",
+        "Production RAG",
+      ],
       experienceLetter: "/Experience Letter-Chayma_Rhaiem - Vizio Consulting.pdf",
       projects: [
         {
@@ -108,57 +150,52 @@ const portfolioData = {
       ],
     },
     {
-      title: "Machine Learning Engineer",
+      title: "ML Systems Engineer",
       company: "BFI Groupe",
       companyIcon: "https://bfigroupe.com/wp-content/uploads/2021/02/bfi_logo_2021.svg",
       location: "Tunis, Tunisia",
       period: "Feb 2022 - Jun 2022",
       experienceLetter: "/Lettre de recommandation Chayma RHAIEM - BFI Groupe.pdf",
       description: [
-        "Leveraged datasets from BFI's African banking partners (300,000+ customer records) for credit risk modeling",
-        "Refined credit risk models under Basel II and IFRS 9 guidelines improving prediction accuracy",
-        "Enhanced prediction accuracy by 10% through advanced model optimization and AutoML techniques",
-        "Developed comprehensive risk assessment framework for African banking sector",
+        "Deployed credit risk scoring models for African banking sector with Basel II and IFRS 9 compliance requirements",
+        "Achieved an additional 10% model accuracy improvement through AutoML frameworks and hyperparameter optimization",
+        "Built production model validation ensuring regulatory compliance in live financial systems",
       ],
       technologies: [
-        "Python",
-        "AutoML",
         "Credit Risk Modeling",
         "Basel II",
-        "IFRS 9 PD",
-        "Statistical Analysis",
-        "Oracle SQL Developer",
+        "IFRS 9",
+        "AutoML",
+        "Hyperparameter Optimization",
+        "Production Validation",
+        "Regulatory Compliance",
+        "Financial ML",
       ],
     },
   ],
 
   education: [
     {
-      degree: "Bachelor of Engineering in Software Engineering",
-      specialization: "Data Science Specialization",
-      institution: "ESPRIT (Private Higher School of Engineering and Technology)",
+      degree: "Master of Science in Engineering (MSE)",
+      specialization: "Software Engineering & Data Science",
+      institution: "ESPRIT (Higher School of Engineering and Technology)",
       institutionIcon: "https://upload.wikimedia.org/wikipedia/commons/f/ff/Logo_ESPRIT_Ariana.jpg",
       location: "Ariana, Tunisia",
-      period: "Sep 2022 - Present",
-      gpa: "",
+      period: "Sep 2022 - Jul 2025",
+      gpa: "Magna Cum Laude (High Honors)",
       achievements: [
-        "Engineered intelligent project management assistant using Graph RAG architecture with LLAMA models",
-        "Developed intelligent trading agent for Tunisian financial market using ML forecasting",
-        "Implemented advanced NLP pipelines for knowledge graph construction and recommendation systems",
-        "Built real-time market sentiment analysis system using scraped data and NLP models",
-        "Integrated Generative AI for financial document processing assistance",
+        "CTI & EUR-ACE Accredited Program",
+        "Awarded Magna Cum Laude (High Honors)",
+        "Specialized in AI-integrated development workflows and production systems",
+        "Led multiple industry-collaboration projects with real-world impact",
       ],
       relevantCourses: [
         "Advanced Machine Learning",
-        "Natural Language Processing",
-        "Data Mining & Analytics",
-        "Cloud Computing",
-        "Software Architecture",
-        "Database Systems",
-        "Computer Vision",
-        "Big Data Processing",
-        "AI & Expert Systems",
-        "Financial Technology",
+        "Production AI Systems",
+        "Cloud Architecture",
+        "Software Engineering",
+        "Data Science",
+        "System Design",
       ],
     },
     {
@@ -167,25 +204,19 @@ const portfolioData = {
       institution: "Polytech-Intl",
       institutionIcon: "https://pi.tn/wp-content/uploads/2019/02/Logo-Pi-RVB.png",
       location: "Tunis, Tunisia",
-      period: "Jun 2022",
+      period: "Graduated Jun 2022",
       gpa: "",
       achievements: [
-        "Created automated Instagram Stories Scraper with Google Cloud Platform",
-        "Implemented computer vision models for brand detection",
-        "Developed cloud-based media processing pipeline",
-        "Designed automated web scraping, scalable data extraction and storage solutions",
+        "Strong foundation in computer science fundamentals",
+        "Focus on software development and system design",
+        "Early exposure to machine learning and data processing",
       ],
       relevantCourses: [
         "Data Structures & Algorithms",
-        "Database Management Systems",
-        "Web Development",
+        "Database Systems",
         "Software Engineering",
-        "Computer Networks",
-        "Operating Systems",
-        "Object-Oriented Programming",
-        "System Analysis & Design",
-        "Optimization for Machine Learning",
-        "Statistics & Probability",
+        "Web Development",
+        "System Programming",
       ],
     },
   ],
@@ -205,8 +236,8 @@ const portfolioData = {
         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/keras/keras-plain-wordmark.svg",
       },
       {
-        name: "Pytorch",
-        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original-wordmark.svgs",
+        name: "PyTorch",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/pytorch/pytorch-original-wordmark.svg",
       },
       {
         name: "Transformers",
@@ -224,22 +255,21 @@ const portfolioData = {
         name: "PySpark",
         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachespark/apachespark-original.svg",
       },
+      { name: "R", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/r/r-original.svg" },
     ],
-    "Web & Frameworks": [
-      {
-        name: "Flask",
-        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original-wordmark.svg",
-      },
+    "Tools & Frameworks": [
+      { name: "FastAPI", logo: "https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png" },
       {
         name: "Streamlit",
         logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/streamlit/streamlit-original-wordmark.svg",
       },
+      {
+        name: "Flask",
+        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/flask/flask-original-wordmark.svg",
+      },
+      { name: "Spring Boot", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg" },
       { name: "Node.js", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" },
       { name: "React", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" },
-      {
-        name: "Spring Framework",
-        logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/spring/spring-original.svg",
-      },
     ],
     "Cloud & Data": [
       { name: "SAP Analytics Cloud", logo: "https://img.icons8.com/deco/512/sap.png" },
@@ -257,6 +287,16 @@ const portfolioData = {
       { name: "AWS Bedrock", logo: "https://devicons.railway.com/i/aws.svg" },
       { name: "AWS Redshift", logo: "https://devicons.railway.com/i/aws.svg" },
       { name: "AWS QuickSight", logo: "https://devicons.railway.com/i/aws.svg" },
+      { name: "AWS S3", logo: "https://devicons.railway.com/i/aws.svg" },
+      { name: "AWS Kendra", logo: "https://devicons.railway.com/i/aws.svg" },
+    ],
+    "AI/GenAI": [
+      { name: "LangChain", logo: "https://python.langchain.com/img/brand/wordmark.png" },
+      { name: "Ollama", logo: "https://ollama.ai/public/ollama.png" },
+      { name: "Groq", logo: "https://groq.com/wp-content/uploads/2024/03/PBG-mark1-color.svg" },
+      { name: "RAG Systems" },
+      { name: "Vector Search" },
+      { name: "Graph RAG" },
     ],
     "Web Scraping & Tools": [
       { name: "Selenium", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/selenium/selenium-original.svg" },
@@ -266,6 +306,8 @@ const portfolioData = {
       },
       { name: "BeautifulSoup" },
       { name: "Git", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" },
+      { name: "Jenkins", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/jenkins/jenkins-original.svg" },
+      { name: "Docker", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" },
     ],
   },
 
@@ -280,14 +322,6 @@ const portfolioData = {
       skills: ["Azure Machine Learning", "Azure DevOps", "MLOps"],
       credentialUrl:
         "https://learn.microsoft.com/en-us/users/chaymarhaiem-7186/credentials/78162f3f59701145?ref=https%3A%2F%2Fwww.linkedin.com%2F",
-    },
-    {
-      name: "SAP Certified Application Associate - SAP Analytics Cloud",
-      issuer: "SAP",
-      date: "Mar 2022",
-      expiryDate: "Mar 2027",
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/SAP_2011_logo.svg/200px-SAP_2011_logo.svg.png",
-      credentialUrl: "https://www.credly.com/badges/6e3cf9b9-8809-412f-a0fb-eefc4c070cfc",
     },
     {
       name: "Natural Language Processing Specialization",
@@ -308,6 +342,23 @@ const portfolioData = {
       credentialUrl: "https://courses.nvidia.com/certificates/LVo06eDuQb6qo9H4MgSl1g",
     },
     {
+      name: "Hedera Hashgraph Developer Certification",
+      issuer: "The Hashgraph Association",
+      date: "Nov 2024",
+      credentialId: "4e0bdb4d-e9fa-4cc1-9ec0-8716f19ed134",
+      logo: "https://hashgraphdev.com/images/tha-white-logo.png",
+      skills: ["Blockchain", "Hashgraph", "DLT"],
+      credentialUrl: "https://certs.hashgraphdev.com/4e0bdb4d-e9fa-4cc1-9ec0-8716f19ed134.pdf",
+    },
+    {
+      name: "SAP Certified Application Associate - SAP Analytics Cloud",
+      issuer: "SAP",
+      date: "Mar 2022",
+      expiryDate: "Mar 2027",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/59/SAP_2011_logo.svg/200px-SAP_2011_logo.svg.png",
+      credentialUrl: "https://www.credly.com/badges/6e3cf9b9-8809-412f-a0fb-eefc4c070cfc",
+    },
+    {
       name: "Google Data Analytics Specialization",
       issuer: "Google",
       date: "Oct 2022",
@@ -316,41 +367,64 @@ const portfolioData = {
       skills: ["Data Analysis", "SQL", "Tableau"],
       credentialUrl: "https://coursera.org/verify/specialization/K64885TR8EFY",
     },
-    {
-      name: "Attendance Hashgraph Developer",
-      issuer: "The Hashgraph Association",
-      date: "Nov 2024",
-      credentialId: "4e0bdb4d-e9fa-4cc1-9ec0-8716f19ed134",
-      logo: "https://hashgraphdev.com/images/tha-white-logo.png",
-      skills: ["Blockchain", "Hashgraph"],
-      credentialUrl: "https://certs.hashgraphdev.com/4e0bdb4d-e9fa-4cc1-9ec0-8716f19ed134.pdf",
-    },
   ],
 
+  // Enhanced academic projects with more depth from resume
   academicProjects: [
     {
       id: 1,
-      title: "GraphRAG-PM: Graph RAG for Project Management",
+      title: "Smart PM Hub – AI-Enhanced Project Assistant",
       description:
-        "Graph RAG architecture powered by LLAMA Language model with Neo4j knowledge graph-based recommendations and real-time analytics dashboard.",
-      technologies: ["Generative AI", "Knowledge Graph", "Neo4j - Graph RAG", "NLP", "NER", "LLM"],
+        "Live RAG-powered project management platform combining Neo4j knowledge graphs with LLM reasoning. Built production NLP pipeline processing 500+ Reddit discussions and PMBOK 7 documentation with optimized 15s response time. Features real-time KPI visualization dashboard with graph-based analytics serving live project data.",
+      technologies: [
+        "Python",
+        "PyTorch",
+        "Neo4j",
+        "Ollama",
+        "Streamlit",
+        "CUDA Optimization",
+        "Graph RAG",
+        "NLP Pipeline",
+        "Real-time Analytics",
+      ],
       github: "https://github.com/ChaymaRhaiem/GraphRAG-PM-Graph-RAG-for-Project-Management",
       demo: "https://drive.google.com/file/d/1ztugCpJtxsbMuLbolK9gcPTFmFR_Eytq/view",
       image:
         "https://github.com/ChaymaRhaiem/GraphRAG-PM-Graph-RAG-for-Project-Management/blob/main/1731533190320.jpg?raw=true",
-      category: "Graph RAG",
+      category: "Production RAG System",
+      year: "2024",
     },
     {
       id: 2,
-      title: "Intelligent Trading Agent",
+      title: "Innovest – AI Trading Platform",
       description:
-        "ML-powered trading system for Tunisian financial market with real-time sentiment analysis and generative AI document processing.",
-      technologies: ["Timeseries Analysis", "Machine Learning", "NLP", "Sentiment Analysis", "Generative AI"],
+        "Real-time trading system for Tunisian markets with production trading system featuring real-time sentiment analysis processing 200+ daily financial articles. Integrated generative AI document processing streamlining automated workflow analysis. Built scalable cloud architecture for live market signal processing and storage.",
+      technologies: [
+        "Python",
+        "MongoDB Atlas",
+        "Timeseries Forecasting",
+        "PyTorch",
+        "Real-time Processing",
+        "Sentiment Analysis",
+        "Cloud Architecture",
+      ],
       github: "https://github.com/ChaymaRhaiem/FinSent--Market-Intelligence-with-Predictive-Analytics-and-NLP",
       demo: "https://drive.google.com/file/d/13l9xMRhHxkDNh-efaR6_PCc-PWZsAuNp/view?usp=sharing",
       image: "/finsent-architecture.png",
       category: "Financial ML",
+      year: "2024",
     },
+    // {
+    //   id: 3,
+    //   title: "DevOps CI/CD Pipeline",
+    //   description:
+    //     "Complete DevOps automation for Spring Boot applications achieving 95% test coverage. Containerized production application stack with Docker Compose enabling seamless deployments. Built comprehensive monitoring infrastructure using Grafana dashboards for real-time performance metrics.",
+    //   technologies: ["Jenkins", "Docker", "Kubernetes", "Grafana", "Prometheus", "Spring Boot", "CI/CD", "Monitoring"],
+    //   github: "https://github.com/ChaymaRhaiem/devops-pipeline",
+    //   image: "/devops-pipeline.png",
+    //   category: "DevOps",
+    //   year: "2024",
+    // },
     {
       id: 3,
       title: "Object Detection Using Adaptive Mask RCNN in Optical Remote Sensing Images",
@@ -368,9 +442,9 @@ const portfolioData = {
       id: 1,
       title: "Hybrid Graph-Vector RAG System",
       description:
-        "Hybrid RAG architecture combining graph and vector retrieval, Custom G-Eval framework for LLM response quality assessment , 70% alert accuracy matching expert-defined priorities, Conversational interface for natural language SAP queries, Automated RCA (root cause analysis) with contextual documentation",
+        "Hybrid RAG architecture combining graph and vector retrieval, Custom G-Eval framework for LLM response quality assessment, 70% alert accuracy matching expert-defined priorities, Conversational interface for natural language SAP queries, Automated RCA (root cause analysis) with contextual documentation",
       technologies: ["Neo4j", "Qdrant Cloud", "Vector Search", "Graph Analytics", "Python"],
-      impact: "70x data processing improvement",
+      impact: "70× data processing improvement",
       image: "/venn.png",
     },
     {
@@ -605,13 +679,13 @@ export default function Portfolio() {
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-bold mb-4 text-blue-300">About Me</h2>
               <p className="text-xl text-slate-300 max-w-3xl mx-auto">
-                Data Scientist and Software Engineer with expertise in machine learning, cloud computing, and
-                intelligent system design.
+                AI Engineer specializing in production RAG systems and AI-integrated development workflows with
+                expertise in machine learning, cloud computing, and intelligent system design.
               </p>
             </div>
           </ScrollReveal>
 
-          <div className="grid md:grid-cols-3 gap-6">
+          <div className="grid md:grid-cols-3 gap-6 mb-12">
             {[
               {
                 icon: Brain,
@@ -644,16 +718,114 @@ export default function Portfolio() {
               </ScrollReveal>
             ))}
           </div>
+
+          {/* Professional Highlights - More discrete and mature */}
+          <ScrollReveal delay={600}>
+            <Card className="neon-border bg-slate-800/50 backdrop-blur-sm">
+              <CardContent className="p-8">
+                <div className="grid md:grid-cols-4 gap-6 text-center">
+                  {Object.entries(portfolioData.professionalHighlights).map(([key, value], index) => (
+                    <div key={key} className="space-y-2">
+                      <div className="text-2xl font-bold text-blue-300">{value}</div>
+                      <div className="text-sm text-slate-400 capitalize">{key.replace(/([A-Z])/g, " $1").trim()}</div>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </ScrollReveal>
+        </div>
+      </section>
+
+      {/* Latest Blog Section */}
+      <section className="py-16 px-4 sm:px-6 lg:px-8">
+        <div className="max-w-4xl mx-auto">
+          <ScrollReveal>
+            <div className="text-center mb-8">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4 text-blue-300">Latest Publication</h2>
+              <p className="text-lg text-slate-300">Sharing insights from production AI systems</p>
+            </div>
+          </ScrollReveal>
+
+          <ScrollReveal delay={200}>
+            <Card className="neon-border bg-slate-800/50 backdrop-blur-sm hover-glow group">
+              <CardContent className="p-8">
+                <div className="flex flex-col lg:flex-row gap-6">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 text-sm text-blue-400 mb-3">
+                      <span>{portfolioData.latestBlog.publishDate}</span>
+                      <span>•</span>
+                      <span>{portfolioData.latestBlog.readTime}</span>
+                    </div>
+
+                    <h3 className="text-xl font-bold text-slate-100 mb-4 group-hover:text-blue-200 transition-colors">
+                      {portfolioData.latestBlog.title}
+                    </h3>
+
+                    <p className="text-slate-300 leading-relaxed mb-6">{portfolioData.latestBlog.excerpt}</p>
+
+                    <div className="flex flex-wrap gap-2 mb-6">
+                      {portfolioData.latestBlog.tags.map((tag, index) => (
+                        <Badge key={index} variant="outline" className="border-blue-500/50 text-blue-300 text-xs">
+                          {tag}
+                        </Badge>
+                      ))}
+                    </div>
+
+                    <div className="flex items-center gap-4">
+                      <a
+                        href={portfolioData.latestBlog.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group/blog inline-flex items-center gap-3 px-6 py-3 bg-gradient-to-r from-blue-500/20 to-purple-500/20 border border-blue-500/30 rounded-xl text-blue-300 hover:from-blue-500/30 hover:to-purple-500/30 hover:border-blue-400/50 transition-all duration-300 hover:scale-105 backdrop-blur-sm"
+                      >
+                        <div className="flex items-center gap-2">
+                          <svg
+                            className="w-5 h-5"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                            fill="currentColor"
+                          >
+                            <path d="M13.54 12a6.8 6.8 0 01-6.77 6.82A6.8 6.8 0 010 12a6.8 6.8 0 016.77-6.82A6.8 6.8 0 0113.54 12zM20.96 12c0 3.54-1.51 6.42-3.38 6.42-1.87 0-3.39-2.88-3.39-6.42s1.52-6.42 3.39-6.42 3.38 2.88 3.38 6.42M24 12c0 3.17-.53 5.75-1.19 5.75-.66 0-1.19-2.58-1.19-5.75s.53-5.75 1.19-5.75C23.47 6.25 24 8.83 24 12z" />
+                          </svg>
+                          <span className="font-medium">Read on Medium</span>
+                        </div>
+                        <svg
+                          className="w-4 h-4 opacity-60 group-hover/blog:opacity-100 group-hover/blog:translate-x-1 transition-all duration-300"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth={2}
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                          />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="lg:w-48 flex-shrink-0">
+                    <div className="aspect-square bg-gradient-to-br from-blue-900/50 to-purple-900/50 rounded-lg flex items-center justify-center">
+                      <div className="text-4xl">📝</div>
+                    </div>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Experience Timeline - Enhanced */}
-      <section id="experience" className="py-16 px-4 sm:px-6 lg:px-8">
+      <section id="experience" className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-800/30 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-bold mb-4 text-blue-300">Professional Experience</h2>
-              <p className="text-xl text-slate-300">My journey in data science and software engineering</p>
+              <p className="text-xl text-slate-300">My journey in AI engineering and software development</p>
             </div>
           </ScrollReveal>
 
@@ -662,7 +834,7 @@ export default function Portfolio() {
       </section>
 
       {/* Education Section - Compact */}
-      <section id="education" className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-800/30 backdrop-blur-sm">
+      <section id="education" className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-12">
@@ -676,7 +848,7 @@ export default function Portfolio() {
       </section>
 
       {/* Certifications Section - Compact */}
-      <section id="certifications" className="py-16 px-4 sm:px-6 lg:px-8">
+      <section id="certifications" className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-800/30 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-12">
@@ -694,13 +866,13 @@ export default function Portfolio() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-800/30 backdrop-blur-sm">
+      <section id="skills" className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-bold mb-4 text-blue-300">Technical Skills</h2>
               <p className="text-xl text-slate-300 mb-8">
-                Expertise across the full data science and software engineering stack
+                Expertise across the full AI engineering and software development stack
               </p>
             </div>
           </ScrollReveal>
@@ -719,7 +891,7 @@ export default function Portfolio() {
       </section>
 
       {/* Projects Section */}
-      <section id="projects" className="py-16 px-4 sm:px-6 lg:px-8">
+      <section id="projects" className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-800/30 backdrop-blur-sm">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-12">
@@ -733,7 +905,7 @@ export default function Portfolio() {
             <div className="mb-12">
               <h3 className="text-2xl font-bold text-blue-400 mb-6 flex items-center">
                 <Users className="w-6 h-6 mr-2" />
-                Highlighted Professional Projects
+                Professional Projects
               </h3>
               <div className="grid md:grid-cols-2 gap-6">
                 {portfolioData.professionalProjects.map((project, index) => (
@@ -746,7 +918,9 @@ export default function Portfolio() {
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
                       <div className="absolute bottom-4 left-4">
-                        <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/50">{project.impact}</Badge>
+                        <Badge className="bg-blue-500/20 text-blue-300 border-blue-500/50 text-xs">
+                          {project.impact}
+                        </Badge>
                       </div>
                     </div>
                     <CardHeader className="pb-3">
@@ -779,7 +953,7 @@ export default function Portfolio() {
             <div>
               <h3 className="text-2xl font-bold text-purple-400 mb-8 flex items-center">
                 <BookOpen className="w-6 h-6 mr-2" />
-                Highlighted Academic Projects
+                Academic Projects
               </h3>
               <div className="space-y-8">
                 {portfolioData.academicProjects.map((project, index) => (
@@ -821,23 +995,25 @@ export default function Portfolio() {
                                   View Code
                                 </a>
                               </Button>
-                              <Button
-                                size="lg"
-                                asChild
-                                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 backdrop-blur-sm"
-                              >
-                                <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path
-                                      strokeLinecap="round"
-                                      strokeLinejoin="round"
-                                      strokeWidth={2}
-                                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                                    />
-                                  </svg>
-                                  Demo
-                                </a>
-                              </Button>
+                              {project.demo && (
+                                <Button
+                                  size="lg"
+                                  asChild
+                                  className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 backdrop-blur-sm"
+                                >
+                                  <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                                    <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                      <path
+                                        strokeLinecap="round"
+                                        strokeLinejoin="round"
+                                        strokeWidth={2}
+                                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                      />
+                                    </svg>
+                                    Demo
+                                  </a>
+                                </Button>
+                              )}
                             </div>
                           </div>
                         </div>
@@ -881,57 +1057,61 @@ export default function Portfolio() {
                             >
                               <a href={project.github} target="_blank" rel="noopener noreferrer">
                                 <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
-                                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                                  <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.30.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
                                 </svg>
                                 Code
                               </a>
                             </Button>
-                            <Button
-                              size="sm"
-                              asChild
-                              className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
-                            >
-                              <a href={project.demo} target="_blank" rel="noopener noreferrer">
-                                <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                                  />
-                                </svg>
-                                Demo
-                              </a>
-                            </Button>
+                            {project.demo && (
+                              <Button
+                                size="sm"
+                                asChild
+                                className="flex-1 bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700"
+                              >
+                                <a href={project.demo} target="_blank" rel="noopener noreferrer">
+                                  <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      strokeWidth={2}
+                                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                                    />
+                                  </svg>
+                                  Demo
+                                </a>
+                              </Button>
+                            )}
                           </div>
 
-                          {/* Project Stats/Metrics */}
-                          <div className="pt-4 border-t border-slate-700/50">
-                            <div className="flex items-center gap-4 text-sm text-slate-400">
-                              <div className="flex items-center gap-1">
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                                  />
-                                </svg>
-                                <span>Academic Research</span>
-                              </div>
-                              <div className="flex items-center gap-1">
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                  <path
-                                    strokeLinecap="round"
-                                    strokeLinejoin="round"
-                                    strokeWidth={2}
-                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                                  />
-                                </svg>
-                                <span>Completed</span>
+                          {/* Project Year */}
+                          {project.year && (
+                            <div className="pt-4 border-t border-slate-700/50">
+                              <div className="flex items-center gap-4 text-sm text-slate-400">
+                                <div className="flex items-center gap-1">
+                                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      strokeWidth={2}
+                                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                                    />
+                                  </svg>
+                                  <span>{project.year}</span>
+                                </div>
+                                <div className="flex items-center gap-1">
+                                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path
+                                      strokeLinecap="round"
+                                      strokeLinejoin="round"
+                                      strokeWidth={2}
+                                      d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                                    />
+                                  </svg>
+                                  <span>Completed</span>
+                                </div>
                               </div>
                             </div>
-                          </div>
+                          )}
                         </div>
                       </div>
                     </div>
@@ -947,13 +1127,13 @@ export default function Portfolio() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 px-4 sm:px-6 lg:px-8 bg-slate-800/30 backdrop-blur-sm">
+      <section id="contact" className="py-16 px-4 sm:px-6 lg:px-8">
         <div className="max-w-6xl mx-auto">
           <ScrollReveal>
             <div className="text-center mb-12">
               <h2 className="text-4xl md:text-5xl font-bold mb-4 text-blue-300">Get In Touch</h2>
               <p className="text-xl text-slate-300 mb-8">
-                Let's discuss how we can leverage data science and AI to drive innovation
+                Let's discuss how we can leverage AI and data science to drive innovation
               </p>
             </div>
           </ScrollReveal>
