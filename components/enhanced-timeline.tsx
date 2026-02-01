@@ -189,17 +189,18 @@ function TimelineItem({
                 <CardTitle className="text-lg text-slate-100">{title}</CardTitle>
               </div>
               {experienceLetter && (
-                <Button
-                  variant="outline"
-                  size="sm"
-                  asChild
-                  className="border-green-500/50 text-green-300 hover:bg-green-500/10"
+                <a
+                  href={experienceLetter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group/letter inline-flex items-center gap-2 px-3 py-2 bg-slate-700/50 border border-slate-600/50 rounded-lg hover:bg-slate-700/70 hover:border-blue-500/50 transition-all duration-300"
+                  title="View Experience Letter"
                 >
-                  <a href={experienceLetter} target="_blank" rel="noopener noreferrer">
-                    <FileText className="w-4 h-4 mr-1" />
-                    Letter
-                  </a>
-                </Button>
+                  <FileText className="w-4 h-4 text-slate-400 group-hover/letter:text-blue-400 transition-colors" />
+                  <span className="text-xs font-medium text-slate-300 group-hover/letter:text-blue-300 transition-colors">
+                    Reference
+                  </span>
+                </a>
               )}
             </div>
             <CardDescription className="text-blue-300 font-medium">{company}</CardDescription>

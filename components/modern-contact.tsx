@@ -163,7 +163,7 @@ export function ModernContact({ email, phone, location, github, linkedin, medium
           <CardContent className="p-8">
             <div className="mb-6">
               <h3 className="text-2xl font-semibold text-slate-100 mb-2">Let's work together</h3>
-              <p className="text-slate-400">Send me a message and I'll get back to you within 24 hours.</p>
+              {/* <p className="text-slate-400">Send me a message and I'll get back to you within 24 hours.</p> */}
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-6">

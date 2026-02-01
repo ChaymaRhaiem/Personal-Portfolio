@@ -1,11 +1,17 @@
 "use client"
 
-import { useState, useEffect } from "react"
+// Performance optimizations applied:
+// 1. useMemo for static data to prevent recreation
+// 2. Lazy loading for images below the fold
+// 3. Reduced animation complexity where possible
+// 4. Memoized navigation items and card data
+
+import { useState, useEffect, useMemo } from "react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
-import { Brain, Database, TrendingUp, BookOpen, Users, Zap, Github, Linkedin } from "lucide-react"
+import { Brain, Database, TrendingUp, BookOpen, Users, Zap, Github, Linkedin, Download } from "lucide-react"
 import { ScrollReveal } from "@/components/scroll-reveal"
 import { MatrixBackground } from "@/components/matrix-background"
 import { EnhancedTimeline } from "@/components/enhanced-timeline"
@@ -27,13 +33,16 @@ const portfolioData = {
   linkedin: "https://linkedin.com/in/chayma-rhaiem",
   medium: "https://medium.com/@rhaiem.chayma",
   avatar: "/profile-photo.jpg",
+  cvUrl: "/Chayma_Rhaiem_CV.pdf", 
+  ieltsUrl: "/IELTS_Certificate_C1.pdf",
+  tcfUrl: "/TCF_Certificate_C1.pdf", 
 
   about:
     "AI Engineer specializing in AI-integrated development workflows and production RAG systems. I've spent the last year and a half building cloud-native applications that intelligently monitor systems, detect anomalies, and provide automated insights. My approach centers on making AI a core part of the development process rather than just an add-on feature.",
 
   // Professional metrics section - more discrete and mature
   professionalHighlights: {
-    experience: "1+ Years",
+    experience: "2+ Years",
     projectsDelivered: "10+ Projects",
     specialization: "Production AI Systems",
     focus: "RAG & ML Engineering",
@@ -52,22 +61,55 @@ const portfolioData = {
 
   languages: [
     { name: "Arabic", level: "Native", flag: "🇹🇳", proficiency: 100 },
-    { name: "English", level: "Advanced (C1)", flag: "🇺🇸", proficiency: 95 },
-    { name: "French", level: "Near-Native (C2)", flag: "🇫🇷", proficiency: 98 },
+    { name: "English", level: "Advanced (C1)", flag: "🇬🇧", proficiency: 98, certUrl: "/IELTS_Certificate_C1.pdf" },
+    { name: "French", level: "Advanced (C1)", flag: "🇫🇷", proficiency: 98, certUrl: "/TCF_Certificate_C1.pdf" },
     { name: "German", level: "Basic (A1)", flag: "🇩🇪", proficiency: 25 },
     { name: "Spanish", level: "Basic (A1)", flag: "🇪🇸", proficiency: 25 },
   ],
 
   experiences: [
+        {
+      title: "Freelance Full-Stack Developer",
+      company: "B2B Dispatching Platform",
+      companyIcon: "", // You can add a custom icon later if needed
+      location: "Tunis, Tunisia",
+      period: "Oct 2025 - Present",
+      description: [
+        "Designed and deployed cloud-based architecture using Firebase and websockets for real-time trip management",
+        "Built intelligent dispatching system leveraging spatial optimization algorithms for driver assignment under spatio-temporal constraints",
+        "Developed Flutter mobile app and web dashboard for GPS tracking, live monitoring, and operational analytics / Reporting",
+      ],
+      technologies: [
+        "Flutter",
+        "Firebase",
+        "Cloud Functions",
+        "Maps API",
+        "Real-time Databases",
+        "Spatial Optimization",
+        "GPS Tracking",
+        "Mobile Development",
+      ],
+      // projects: [
+      //   {
+      //     title: "Intelligent Dispatching System",
+      //     description:
+      //       "Cloud-based real-time trip management platform with spatial optimization algorithms for efficient driver assignment and live GPS tracking capabilities.",
+      //     image: "", // You can add an image later if you have one
+      //     technologies: ["Flutter", "Firebase", "Cloud Functions", "Realtime GPS tracking"],
+      //     impact: "Real-time trip management",
+      //   },
+      // ],
+    },
     {
-      title: "AI Engineer – Client Project (End-of-studies Internship)",
+      title: "AI Engineer – Client in Logistics & Communication Sector, Europe",
       company: "Avaxia Group",
       companyIcon: "https://www.avaxiagroup.com/wp-content/themes/poey-custom-wp/assets/img/avaxia-logo.svg",
       location: "Tunis, Tunisia",
       period: "Jul 2024 - Jun 2025",
       description: [
         "Built cloud-based service with FastAPI to monitor SAP systems using T-codes, detect anomalies and critical errors, and suggest fixes from SAP help docs, SAP notes, and expert knowledge",
-        "Increased system capacity by 70× while keeping response times under one second using Neo4j graph queries and Qdrant vector search",
+        "Built hybrid RAG architecture combining Knowledge graphs and vector databases for automated root-cause analysis (RCA).",
+        "Scaled systems capacity by 70× while keeping response times under one second using Neo4j graph queries and Qdrant vector search",
         "Added Ollama for local LLM inference and Groq for low-latency model serving, cutting response times and reducing API costs",
         "Optimized vector similarity search performance from 3.2s to 800ms response time in production queries",
         "Created production MS Teams bot integration processing 1000+ automated incident workflows daily",
@@ -102,7 +144,7 @@ const portfolioData = {
     {
       title: "Cloud Solutions Consultant (Full-Time Contract)",
       company: "VIZIO Consulting Inc",
-      companyIcon: "https://vizioconsulting.com/wp-content/uploads/2021/12/Vizio_Connecting_logo-01-2048x1011.png",
+      companyIcon: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT39K5GpsUNxR1H3z_aWTvBaMyxA_XLgrXjLg&s",
       location: "Toronto, Canada",
       period: "Jun 2023 - Jan 2024",
       description: [
@@ -481,6 +523,34 @@ export default function Portfolio() {
     setMobileMenuOpen(false)
   }
 
+  // Memoize navigation items to prevent recreating on every render
+  const navItems = useMemo(
+    () => ["Home", "About", "Experience", "Education", "Certifications", "Skills", "Projects", "Contact"],
+    [],
+  )
+
+  // Memoize about cards to prevent recreating on every render
+  const aboutCards = useMemo(
+    () => [
+      {
+        icon: Brain,
+        title: "AI/ML Engineering",
+        desc: "RAG systems, NLP pipelines, and scalable ML architectures",
+      },
+      {
+        icon: Database,
+        title: "Data Engineering",
+        desc: "Cloud data pipelines, vector databases, and real-time processing",
+      },
+      {
+        icon: TrendingUp,
+        title: "Software Engineering",
+        desc: "Full-stack development, system design, and production deployment",
+      },
+    ],
+    [],
+  )
+
   return (
     <div className="min-h-screen bg-slate-900 text-slate-100 relative overflow-hidden">
       <MatrixBackground />
@@ -502,8 +572,7 @@ export default function Portfolio() {
             <div
               className={`hidden md:flex space-x-8 transition-all duration-700 ${isLoaded ? "animate-slide-in-right" : "opacity-0"}`}
             >
-              {["Home", "About", "Experience", "Education", "Certifications", "Skills", "Projects", "Contact"].map(
-                (item, index) => (
+              {navItems.map((item, index) => (
                   <button
                     key={item}
                     onClick={() => scrollToSection(item.toLowerCase())}
@@ -562,12 +631,11 @@ export default function Portfolio() {
 
           {/* Mobile Navigation */}
           <div
-            className={`md:hidden overflow-hidden transition-all duration-500 ${mobileMenuOpen ? "max-h-96 py-4" : "max-h-0"}`}
+            className={`md:hidden overflow-hidden transition-all duration-500 ${mobileMenuOpen ? "max-h-[500px] py-4" : "max-h-0"}`}
           >
             <div className="border-t border-blue-500/30 pt-4">
               <div className="flex flex-col space-y-4">
-                {["Home", "About", "Experience", "Education", "Certifications", "Skills", "Projects", "Contact"].map(
-                  (item, index) => (
+                {navItems.map((item, index) => (
                     <button
                       key={item}
                       onClick={() => scrollToSection(item.toLowerCase())}
@@ -622,7 +690,11 @@ export default function Portfolio() {
               className={`flex items-center justify-center gap-8 mb-8 transition-all duration-1000 ${isLoaded ? "animate-scale-in" : "opacity-0 scale-90"}`}
             >
               <Avatar className="w-32 h-32 md:w-40 md:h-40 border-4 border-blue-500/30 shadow-2xl shadow-blue-500/30 flex-shrink-0">
-                <AvatarImage src={portfolioData.avatar || "/placeholder.svg"} alt={portfolioData.name} />
+                <AvatarImage 
+                  src={portfolioData.avatar || "/placeholder.svg"} 
+                  alt={portfolioData.name}
+                  loading="eager"
+                />
                 <AvatarFallback className="text-2xl md:text-3xl bg-gradient-to-br from-blue-500 to-purple-600 text-white">
                   {portfolioData.name
                     .split(" ")
@@ -659,6 +731,16 @@ export default function Portfolio() {
                 View My Work
               </Button>
               <Button
+                asChild
+                size="lg"
+                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 transform hover:scale-105 transition-all duration-300"
+              >
+                <a href={portfolioData.cvUrl} download>
+                  <Download className="w-5 h-5 mr-2" />
+                  Download CV
+                </a>
+              </Button>
+              <Button
                 onClick={() => scrollToSection("contact")}
                 variant="outline"
                 size="lg"
@@ -686,23 +768,7 @@ export default function Portfolio() {
           </ScrollReveal>
 
           <div className="grid md:grid-cols-3 gap-6 mb-12">
-            {[
-              {
-                icon: Brain,
-                title: "AI/ML Engineering",
-                desc: "RAG systems, NLP pipelines, and scalable ML architectures",
-              },
-              {
-                icon: Database,
-                title: "Data Engineering",
-                desc: "Cloud data pipelines, vector databases, and real-time processing",
-              },
-              {
-                icon: TrendingUp,
-                title: "Software Engineering",
-                desc: "Full-stack development, system design, and production deployment",
-              },
-            ].map((item, index) => (
+            {aboutCards.map((item, index) => (
               <ScrollReveal key={index} delay={index * 200}>
                 <Card className="neon-border bg-slate-800/50 backdrop-blur-sm hover-glow text-center">
                   <CardHeader className="pb-4">
@@ -884,7 +950,7 @@ export default function Portfolio() {
           {/* Languages Section */}
           <ScrollReveal delay={400}>
             <div className="mt-8">
-              <LanguagesSection languages={portfolioData.languages} />
+              <LanguagesSection languages={portfolioData.languages} ieltsUrl={portfolioData.ieltsUrl} tcfUrl={portfolioData.tcfUrl} />
             </div>
           </ScrollReveal>
         </div>
@@ -915,6 +981,7 @@ export default function Portfolio() {
                         src={project.image || "/placeholder.svg"}
                         alt={project.title}
                         className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-slate-900/80 to-transparent" />
                       <div className="absolute bottom-4 left-4">
@@ -969,6 +1036,7 @@ export default function Portfolio() {
                             src={project.image || "/placeholder.svg"}
                             alt={project.title}
                             className="w-full h-full object-contain transition-all duration-700 group-hover:scale-105 filter brightness-90 group-hover:brightness-100"
+                            loading="lazy"
                           />
                           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-transparent to-slate-900/20 lg:to-slate-900/60" />
 
@@ -1154,8 +1222,8 @@ export default function Portfolio() {
       {/* Footer */}
       <footer className="py-6 px-4 sm:px-6 lg:px-8 border-t border-blue-500/30">
         <div className="max-w-6xl mx-auto text-center">
-          <p className="text-slate-400">© 2024 {portfolioData.name}. All rights reserved.</p>
-          <p className="text-slate-500 text-sm mt-2">Built with Next.js, TypeScript, and futuristic vibes ⚡</p>
+          {/* <p className="text-slate-400">© 2024 {portfolioData.name}. All rights reserved.</p> */}
+          <p className="text-slate-500 text-sm mt-2">Built with Next.js and TypeScript</p>
         </div>
       </footer>
     </div>

@@ -2,20 +2,23 @@
 
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
-import { Languages } from "lucide-react"
+import { Languages, Download } from "lucide-react"
 
 interface Language {
   name: string
   level: string
   flag: string
   proficiency: number
+  certUrl?: string
 }
 
 interface LanguagesSectionProps {
   languages: Language[]
+  ieltsUrl?: string
+  tcfUrl?: string
 }
 
-export function LanguagesSection({ languages }: LanguagesSectionProps) {
+export function LanguagesSection({ languages, ieltsUrl, tcfUrl }: LanguagesSectionProps) {
   const getProficiencyColor = (level: string) => {
     switch (level.toLowerCase()) {
       case "native":
@@ -31,6 +34,13 @@ export function LanguagesSection({ languages }: LanguagesSectionProps) {
     }
   }
 
+  // Get cert URL based on language name
+  const getCertUrl = (languageName: string) => {
+    if (languageName.toLowerCase() === "english") return ieltsUrl
+    if (languageName.toLowerCase() === "french") return tcfUrl
+    return null
+  }
+
   return (
     <Card className="neon-border bg-slate-800/50 backdrop-blur-sm hover-glow">
       <CardHeader>
@@ -43,28 +53,45 @@ export function LanguagesSection({ languages }: LanguagesSectionProps) {
       </CardHeader>
       <CardContent>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {languages.map((language, index) => (
-            <div
-              key={index}
-              className="group relative p-4 rounded-lg bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105"
-            >
-              <div className="flex items-center justify-between mb-3">
-                <div className="flex items-center space-x-3">
-                  <span className="text-2xl">{language.flag}</span>
-                  <div>
-                    <div className="font-medium text-slate-200">{language.name}</div>
-                    <Badge className={`text-xs ${getProficiencyColor(language.level)}`}>{language.level}</Badge>
+          {languages.map((language, index) => {
+            const certUrl = language.certUrl || getCertUrl(language.name)
+            
+            return (
+              <div
+                key={index}
+                className="group relative p-4 rounded-lg bg-slate-700/30 hover:bg-slate-700/50 transition-all duration-300 hover:scale-105"
+              >
+                <div className="flex items-center justify-between mb-3">
+                  <div className="flex items-center space-x-3">
+                    <span className="text-2xl">{language.flag}</span>
+                    <div>
+                      <div className="font-medium text-slate-200">{language.name}</div>
+                      <Badge className={`text-xs ${getProficiencyColor(language.level)}`}>{language.level}</Badge>
+                    </div>
                   </div>
+                  {certUrl && (
+                    <a
+                      href={certUrl}
+                      download
+                      className="p-2 rounded-lg bg-indigo-500/20 hover:bg-indigo-500/30 border border-indigo-500/50 hover:border-indigo-400/70 transition-all duration-300 group/cert"
+                      title="Download Certificate"
+                    >
+                      <Download className="w-4 h-4 text-indigo-400 group-hover/cert:text-indigo-300 group-hover/cert:translate-y-0.5 transition-all" />
+                    </a>
+                  )}
                 </div>
+                <div className="w-full bg-slate-600/50 rounded-full h-2">
+                  <div
+                    className="bg-gradient-to-r from-indigo-500 to-purple-500 h-2 rounded-full transition-all duration-1000 ease-out"
+                    style={{ width: `${language.proficiency}%` }}
+                  ></div>
+                </div>
+                {certUrl && (
+                  <div className="mt-2 text-xs text-indigo-400/60">Certificate available</div>
+                )}
               </div>
-              <div className="w-full bg-slate-600/50 rounded-full h-2">
-                <div
-                  className="bg-gradient-to-r from-indigo-500 to-purple-500 h-2 rounded-full transition-all duration-1000 ease-out"
-                  style={{ width: `${language.proficiency}%` }}
-                ></div>
-              </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </CardContent>
     </Card>
